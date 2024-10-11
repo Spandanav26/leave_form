@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Submitted Leave Application Details</h1>
+    <div class="details">
+        <p><strong>Date:</strong> <span id="date"></span></p>
+        <p><strong>Applicant Name:</strong> <span id="applicantName"></span></p>
+        <p><strong>Authority:</strong> <span id="authority"></span></p>
+        <p><strong>Reason:</strong> <span id="reason"></span></p>
+        <p><strong>Leave Start Date:</strong> <span id="startDate"></span></p>
+        <p><strong>Leave End Date:</strong> <span id="endDate"></span></p>
+    </div>
+
+    <script>
+        // Display submitted details on the admin page
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('date').textContent = new Date().toISOString().split('T')[0];
+        document.getElementById('applicantName').textContent = urlParams.get('applicantName');
+        document.getElementById('authority').textContent = urlParams.get('authority');
+        document.getElementById('reason').textContent = urlParams.get('reason');
+        document.getElementById('startDate').textContent = urlParams.get('startDate');
+        document.getElementById('endDate').textContent = urlParams.get('endDate');
+    </script>
+</body>
+</html>

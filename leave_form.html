@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Application Form</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Internal CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .submit-button {
+            background-color: #28a745; /* Inline CSS */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .submit-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leave Application Form</h1>
+    <form action="admin.html" method="GET"> <!-- Changed method from POST to GET -->
+        <label for="date">Date:</label>
+        <input type="date" id="date" disabled>
+
+        <label for="applicantName">Applicant Name:</label>
+        <input type="text" id="applicantName" name="applicantName" value="Sivaram" readonly>
+
+        <label for="authority">Authority:</label>
+        <select id="authority" name="authority">
+            <option value="Principal">Principal</option>
+            <option value="HOD">HOD</option>
+        </select>
+
+        <label for="reason">Leave Applying For:</label>
+        <input type="text" id="reason" name="reason" placeholder="Enter the reason for leave" required>
+
+        <label for="startDate">Leave Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+
+        <label for="endDate">Leave End Date:</label>
+        <input type="date" id="endDate" name="endDate" required>
+
+        <button type="submit" class="submit-button">Apply</button>
+    </form>
+
+    <script>
+        // Disable today's date selection in the form
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
